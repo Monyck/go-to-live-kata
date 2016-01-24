@@ -1,0 +1,5 @@
+# File Managed by Puppet
+
+[client]
+password=
+<% if scope.lookupvar('mysql::socket') != '' %>socket=<%= scope.lookupvar('mysql::socket') %><% end %>

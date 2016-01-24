@@ -1,28 +1,39 @@
-Go to live! kata
-==================================
+# Go to live! kata
 
-Contained in this repo, there are some instructions for a new application that will go live in the next month!
+This project goal is to run a single command and to go online with a Wordpress site.
 
-You will need to:
+### Prerequisites:
+  - [Vagrant, latest version] (currently 1.8.1; Ubuntu 14.04 repo version is too old and not working well with the AWS plugin)
+  - [Vagrant AWS plugin]
+  - [Awscli], already working (its configuration is beyond the scope of this guide)
 
-1. Fork this repository.
+> Note: this code creates AWS resources. Charges may apply. Be careful.
 
-2. Automate the creation of the infrastructure and the setup of the application.
+### Assumptions
 
-   You have only these instructions:
+* all infrastructure resources have to be created
+* if you own a DNS zone, you can manage it with Route53, but it's out of scope
+* I choose default values for some variables (AMI, type, region etc.). They can virtually all be parametrized
+* some code is commented - some variables require you to know what you are doing. For any doubt, ask well!
+* the Puppet modules obviously have not been written from scratch. I used [Example42 Puppet modules] by my dear friend Alessandro Franceschi
+* to demonstrate the functionality of the code, I decided to import a test database (it's an optional feature)
 
-   2.1 It works on Ubuntu Linux 14.04 x64
+### Setup
 
-   2.2 It's based on the last version of WordPress (it will be more useful if we can parameterize the version)
+Before you start, please take a look at the setup.cfg file and set all variables; they are mandatory.
 
-   2.3 You can choose Apache, Nginx or whatever you want
+### Installation
 
-   For any other issues or question you will have to ask to the developers. In this case please ask us without problems :)
+You just have to run the script:
 
-3. Once deployed, the application should be secure, fast and stable. Assume that the machine is running on the public Internet and should be hardened and locked down.
+```sh
+$ bash run_setup.sh
+```
 
-4. Make any assumptions that you need to. This is an opportunity to showcase your skills, so if you want to, implement the deployment process with any additional features, tools or techniques you'd like to.
+[//]: # (These are reference links used in the body of this note and get stripped out when the markdown processor does its job. There is no need to format nicely because it shouldn't be seen. Thanks SO - http://stackoverflow.com/questions/4823468/store-comments-in-markdown-syntax)
 
-5. We are evaluating solutions based on the architecture and quality of the deployment. Show us just how beautiful, clean and pragmatic your code can be.
 
-6. Once your solution is ready, please send us the link of your project.
+   [Vagrant, latest version]: <https://www.vagrantup.com/downloads.html>
+   [Vagrant AWS plugin]: <https://github.com/mitchellh/vagrant-aws>
+   [Awscli]: <https://aws.amazon.com/it/cli/>
+   [Example42 Puppet modules]: <https://github.com/example42/puppet-modules>
