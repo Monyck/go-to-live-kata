@@ -11,10 +11,11 @@ else
     chmod 600 $AWS_KEYPAIR_PATH
 fi
 
+# CIDR are custom. Please insert values that make sense
 if [[ $AWS_VPC == 'no' ]]; then
 	aws ec2 create-security-group --group-name $AWS_WP_SG --description "Vagrant Test" > /dev/null 2>&1
 	aws ec2 authorize-security-group-ingress --group-name $AWS_WP_SG --protocol tcp --port 22 --cidr 93.34.199.182/32 > /dev/null 2>&1
-	aws ec2 authorize-security-group-ingress --group-name $AWS_WP_SG --protocol tcp --port 80 --cidr 93.34.199.182/32 > /dev/null 2>&1
+	aws ec2 authorize-security-group-ingress --group-name $AWS_WP_SG --protocol tcp --port 80 --cidr 0.0.0.0 > /dev/null 2>&1
 fi
 
 if [[ -z $AWS_WP_EI ]]; then
